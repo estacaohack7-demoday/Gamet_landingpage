@@ -15,16 +15,8 @@ let pin_quarto = document.queryCommandValue("#quarto");
 let pin_quinto = document.queryCommandValue("#quinto");
 
 
-let pin = [pin_primeiro, pin_segundo, pin_terceiro, pin_quarto, pin_quinto]
+let todosQuadros = [quadro_um,quadro_dois,quadro_tres,quadro_quatro,quadro_cinco];
 
-for (i=0, i<= carrosel.length, i++){;
-onclick(carrosel){
-    i+2 && i+3 = style.display="none";
-    style.transforme="translateX(100%)"
-}
-
-for pin of carrosel{}
-
-function girarCarrossel (quadros){
-    
+function mudarQuadro (){
+    for (quadro of todosQuadros){}
 }

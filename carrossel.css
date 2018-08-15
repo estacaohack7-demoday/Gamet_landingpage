@@ -1,156 +1,180 @@
-body{
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    body{
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        background-color: white;
+        display: flex;
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: center;
+    }
+
+    #carrossel{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        position: fixed;
+    }
+
+
+    .seta{
+        width: 2.5vw;
+        height: 5vh;
+        border-radius: 50%;
+        opacity: 0.4;
+        transition: ease-in-out 0.4s;
+    }
+
+    .seta#esquerda{
+        left: 10%;
+        position: absolute;
+    }
+
+    .seta#direita {
+        left: 90%;
+        position: absolute;
+    }
+
+    .seta img{
+        width: 2.5vw;
+        height: 5vh;
+        border-radius: 50%;
+    }
+
+    .quadro{
+        width: 65vw;;
+        height:45vh; 
+        margin: 10px;
+        background-color: #e8ebef;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 10px;
+        position: absolute;    
+    }
+
+    .img-carrossel{
+        width: 35vw;
+        height: 28vh;
+        margin: 10px;
+        border-radius: 50%;
+    }
+
+    .carrossel-p{
+        color: #000000;
+        text-align: center;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+    }
+
+    .quadro.dois, .quadro.tres, .quadro.quatro, .quadro.cinco{
+        display: flex;
+        opacity: 0;
+    }
+
+    .quadro.um{
+        display: flex;
+        opacity: 1;
+    }
+
+@media(min-width: 600px){
+    #carrossel{
+        width: calc(45*5vw);
+        height: 40vh;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+    .quadro.um, .quadro.dois, .quadro.tres {
+        opacity: 1;
+        width: 25vw;    
+        height: 40vh;
+    }
+    
+    .quadro.quatro, .quadro.cinco{
+        opacity: 0;
+        width: 25vw;
+        height: 40vh;
+        
+    }
+    .img-carrossel{
+        width: 20vw;
+        height: 25vh;
+        margin: 10px;
+        border-radius: 50%;
+    }
+    .seta#esquerda{
+        left: 3%;
+        position: absolute;
+    }
+
+    .seta#direita {
+        left: 97%;
+        position: absolute;
+    }
+
     
 }
-#carrossel{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    position: fixed;
-    /* transform: translateY(-50%);
-    overflow: hidden */
-}
 
-.seta{
-    width: 2.5vw;
-    height: 5vh;
-    border-radius: 50%;
-    opacity: 0.4;
-    transition: ease-in-out 0.4s;
+@media(min-width: 1000px){
+
+    @keyframes girar {
+        0% { transform: translateX(0)}
+        100% { transform: translateX(-3000px)}
+    }
+    #carrossel{
+        width: 3000vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+        overflow: hidden;
+        animation: girar 30s linear infinite;
+        transition: opacity 0.5s ease-out; 
+        opacity: 1;
+    }
+    .quadro{
+        width: 30vw;
+        height:45vh; 
+        margin: 10px;
+        opacity: 1;
+        background-color: #e8ebef;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 10px;
+        position: relative;
+        transition: ease-in-out .6s;
+    }
+
+    .quadro.quatro, .quadro.cinco{
+        opacity: 1;
+    }
+   
+    .img-carrossel{
+        margin: 10px;
+        border-radius: 50%;
+        width: 12vw;
+        height: 30vh;
+        opacity: 1;   
+    }
+
+    .quadro:hover{
+        background-color: rgb(255, 254, 254);
+        width: 35vw;
+        height: 52vh;
+        box-shadow: 5px 5px 50px 5px rgb(174, 203, 216);
+        /* O paused nao fununcia, help */
+        animation-play-state: paused;
+    }
     
-}
-
-.seta#esquerda{
-    left: 10%;
-    position: absolute;
-}
-
-.seta#direita {
-   left: 90%;
-   position: absolute;
-}
-
-.seta img{
-    width: 2.5vw;
-    height: 5vh;
-    border-radius: 50%;
-}
-
-.quadro{
-    width: 20vw;;
-    height:50vh; 
-    margin: 10px;
-    background-color: #e8ebef;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 10px;
-    transition: ease-in-out .6s;
-    position: fixed;
-
-}
-
-.quadro#um {
-    left: 0%;
-    opacity: 0;
-    transform: translateY(50%) translateX(-50%);
-    width: 17vw;    
-    height: 45vh;
-} 
-
-
-.quadro#dois{
-    left: 30%;
-    z-index: 2;
-    opacity: 1;
-    transform: translateY(0%) translateX(-50%);
-    width: 17vw;
-    height: 45vh;
-    opacity: 0.8;;
-}
-
-.quadro#tres{
-    left: 50%;
-    z-index: 3;
-    opacity: 1;
-    transform: translateY(0%) translateX(-50%);
-    width: 20vw;
-    height: 50vh;
-}
-
-.quadro#quatro{
-    left: 70%;
-    opacity: 1;
-    z-index: 2;
-    transform: translateY(0%) translateX(-50%);
-    width: 17vw;
-    height: 45vh;
-    opacity: 0.8;
-}
-
-.quadro#cinco{
-    right: 0%;
-    opacity: 0;
-    transform: translateY(50%) translateX(-50%);
-    width: 17vw;    
-    height: 45vh;
-
-}
-
-img{
-    margin: 10px;
-    border-radius: 50%;
-    width: 12vw;
-    height: 30vh;
-    opacity: 1;
-
-}
-
-p{
-    color: #000000;
-    text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-}
-
-/* #bolinhas{
-    width: 25vw;
-    /* height: 10vh; */
-    /* margin: 20px;
-    border: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    align-self: center;
-}
-
-.pin{
-    width: 0.75vw;
-    height: 1.5vh;
-    border-radius: 50%;
-    border: solid 3px darkorange;
-    background-color: orange
-} */
-
-.quadro:hover{
-    background-color: rgb(255, 254, 254);
-    width: 22vw;
-    height: 52vh;
-    box-shadow: 5px 5px 50px 5px rgb(174, 203, 216);
-}
-
-.seta:hover{
-    opacity: 0.9;
+    .seta#esquerda, .seta#direita{
+       display: none;
+    }
 }
